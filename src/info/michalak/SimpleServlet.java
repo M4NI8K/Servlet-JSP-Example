@@ -22,29 +22,30 @@ import javax.servlet.http.HttpServletResponse;
 public class SimpleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public SimpleServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 // doGet Method gets automatically executed when Servlet is accessed by url
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Hello from servlet"); // Executes every time someones accesses Servlet url in console(depends on tomcat Server settings)
-		// TODO Auto-generated method stub
+		
+		String getName = request.getParameter("userName"); //username parameter passet from browser to tomcat in request 
+		
+		
+		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter(); //Prints In html
-			writer.println("<h3> Print Writter HELLO </h3>");
+			
+		writer.println("This was passt in request" + getName) ;
+		    
+		 
 			
 			
 		
 		
-	response.getWriter().append("Served at: ").append(request.getContextPath());
-
+//not important	
+	System.out.println("Hello from servlet"); // Executes every time someones accesses Servlet url in console(depends on tomcat Server settings)
 	System.out.println(request.getProtocol());
 	}
 
